@@ -28,8 +28,17 @@
   }
 
   const sortCategories = (sortBy) => {
-    if (sortBy === 'name') {
+    if (sortBy === 'nameAsc') {
+      if (!categories.value.reduce((n, item) => n !== false && item >= n && item)) {
+        categories.value.sort()
+      }
       categories.value.reverse()
+      sortNameAsc.value = !sortNameAsc.value
+    }
+    if (sortBy === 'nameDsc') {
+      if (!categories.value.reduce((n, item) => n !== false && item >= n && item)) {
+        categories.value.sort()
+      }
       sortNameAsc.value = !sortNameAsc.value
     }
     if (sortBy === 'random') {
@@ -43,18 +52,62 @@
 
 <template>
   <section class="categories rim">
-    <button @click="sortCategories('name')">Sort by name {{sortNameAsc ? '▼' : '▲'}}</button>
-    <button @click="sortCategories('random')">Sort randomly</button>
-
-    <div v-for="category in categories">
-      <div @click="selectCategory(category)">{{category}}</div>
-    </div>
     <div v-if="pending">Loading...</div>
-    <div v-else>    
+    <div v-else>
+      <div class="sortBtns">
+        <button v-if="sortNameAsc" @click="sortCategories('nameAsc')"><h6>Sort by name '▲'</h6></button>
+        <button v-if="!sortNameAsc" @click="sortCategories('nameDsc')"><h6>Sort by name '▼'</h6></button>
+        <button @click="sortCategories('random')"><h6>Sort randomly</h6></button>
+      </div>
+      <div class="categoriesList">
+        <div v-for="category in categories">
+          <div class="category" @click="selectCategory(category)">{{category}}</div>
+        </div>
+      </div>
       <div v-if="modalOpen">
         <Modal :joke="joke.value" @closeModal="modalOpen = false" />
       </div>
     </div>
+
     <div v-if="error">{{error}}</div>
   </section>
 </template>
+
+<style scoped>
+  .categories {
+    width: 100%;
+    min-height: 100vh;
+    padding: 10vh 10vw;
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
+    .categories .sortBtns {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      gap: var(--font-1)
+    }
+      .categories button {
+        padding: var(--font-1) var(--font-2);
+        background: transparent;
+        cursor: pointer;
+      }
+
+    .categories .categoriesList {
+      display: flex;
+      flex-flow: row wrap;
+      gap: var(--font-1);
+      justify-content: center;
+      align-items: center;
+    }
+
+      .categories .category {
+        cursor: pointer;
+        padding: var(--font-1) var(--font-2);
+        border-radius: .5rem;
+        background: var(--color-aqua-haze);
+        box-shadow:  -20px 20px 60px #c9d0d0,
+                      20px -20px 60px #ffffff;
+      }
+</style>
