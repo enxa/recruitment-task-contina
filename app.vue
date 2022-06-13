@@ -86,13 +86,16 @@
       display: flex;
       flex-flow: row wrap;
       justify-content: center;
-      gap: var(--font-1)
+      gap: var(--font-3);
+      padding-bottom: var(--font-3);
     }
       .categories button {
-        padding: var(--font-1) var(--font-2);
         background: transparent;
         cursor: pointer;
       }
+        .categories button h6 {
+          padding: 0;
+        }
 
     .categories .categoriesList {
       display: flex;
