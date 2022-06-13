@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600;900&display=swap');
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+	vertical-align: baseline;
+
+	--color-mine-shaft: #323232;
+	--color-aqua-haze: #EDF5F5;
+	
+	--font-size: 2rem;
+	--font-1: calc( var(--font-size) * var(--font-ratio) );
+	--font-2: calc( var(--font-size) * var(--font-ratio) * var(--font-ratio) );
+	--font-3: calc( var(--font-size) * var(--font-ratio) * var(--font-ratio) * var(--font-ratio)  );
+	--line-height: 1.5;
+	--interline-1: calc( var(--line-height) * var(--interline-ratio) );
+	--interline-2: calc( var(--line-height) * var(--interline-ratio) * var(--interline-ratio) );
+	--interline-3: calc( var(--line-height) * var(--interline-ratio) * var(--interline-ratio) * var(--interline-ratio) );
+	
+	--font-light: 300;
+	--font-regular: 600;
+	--font-bold: 900;
+}
+
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	font-size: 62.5%;
+	line-height: 1.5;
+	color: var(--color-mine-shaft);
+	background-color: var(--color-aqua-haze);
+}
+
+body {
+	font-size: 2rem;
+	line-height: 1.5;
+	color: var(--color-mine-shaft);
+	background-color: var(--color-aqua-haze);
+}
+ol, ul {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+img {
+	max-width: 100%;
+}
+table {
+	border-collapse: collapse;
+}
+textarea {
+	white-space: revert;
+}
+
+h1 { font-size: var(--font-3); margin: var(--font-3) 0; line-height: var(--interline-3); font-weight: var(--font-bold);}
+h2 { font-size: var(--font-3); margin: var(--font-3) 0; line-height: var(--interline-3); font-weight: var(--font-light);}
+h3 { font-size: var(--font-2); margin: var(--font-2) 0; line-height: var(--interline-2); font-weight: var(--font-bold);}
+h4 { font-size: var(--font-2); margin: var(--font-2) 0; line-height: var(--interline-2); font-weight: var(--font-light);}
+h5 { font-size: var(--font-1); margin: var(--font-1) 0; line-height: var(--interline-1); font-weight: var(--font-bold);}
+h6 { font-size: var(--font-1); margin: var(--font-1) 0; line-height: var(--interline-1); font-weight: var(--font-light);}
+
+@media (min-width: 0px)    { * { --font-ratio: 1.2; --interline-ratio: 0.85; } .rim { padding: calc(100vw/60) } }
+@media (min-width: 320px)  { * { --font-ratio: 1.3; --interline-ratio: 0.85; } .rim { padding: calc(100vw/48) } }
+@media (min-width: 640px)  { * { --font-ratio: 1.4; --interline-ratio: 0.85; } .rim { padding: calc(100vw/48) } }
+@media (min-width: 960px)  { * { --font-ratio: 1.5; --interline-ratio: 0.85; } .rim { padding: calc(100vw/36) } }
+@media (min-width: 1280px) { * { --font-ratio: 1.6; --interline-ratio: 0.85; } .rim { padding: calc(100vw/36) } }
+@media (min-width: 1600px) { * { --font-ratio: 1.7; --interline-ratio: 0.85; } .rim { padding: calc(100vw/36) } }
+@media (min-width: 1920px) { * { --font-ratio: 1.8; --interline-ratio: 0.85; } .rim { padding: calc(100vw/36) } }
+@media (min-width: 2240px) { * { --font-ratio: 1.9; --interline-ratio: 0.85; } .rim { padding: calc(100vw/24) } }
+@media (min-width: 2560px) { * { --font-ratio: 2.0; --interline-ratio: 0.85; } .rim { padding: calc(100vw/24) } }
+@media (min-width: 2880px) { * { --font-ratio: 2.1; --interline-ratio: 0.85; } .rim { padding: calc(100vw/24) } }
+@media (min-width: 3200px) { * { --font-ratio: 2.2; --interline-ratio: 0.85; } .rim { padding: calc(100vw/24) } }
+@media (min-width: 3520px) { * { --font-ratio: 2.3; --interline-ratio: 0.85; } .rim { padding: calc(100vw/24) } }
+@media (min-width: 3840px) { * { --font-ratio: 2.4; --interline-ratio: 0.85; } .rim { padding: calc(100vw/24) } }
