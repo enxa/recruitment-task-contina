@@ -5,16 +5,12 @@
 
   const { joke } = toRefs(props)
 
-  // watchEffect(async () => {
-  //   const { data: joke, pending, error, refresh } = await useFetch(`https://api.chucknorris.io/jokes/random?category=${category.value}`)
-
-  //   console.log(joke)
-  // })
+  const emit = defineEmits(['closeModal'])
 
 </script>
 
 <template>
-  <section class="modal rim">
+  <section class="modal rim" @click="emit('closeModal')">
     {{joke}}
   </section>
 </template>
